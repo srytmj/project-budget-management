@@ -38,7 +38,8 @@
                             class="w-full rounded-xl border-gray-200 focus:ring-2 focus:ring-indigo-500">
                     </div>
                     <div>
-                        <label class="block text-xs font-bold text-gray-400 uppercase mb-2 tracking-widest">Nama Penanggung
+                        <label class="block text-xs font-bold text-gray-400 uppercase mb-2 tracking-widest">Nama
+                            Penanggung
                             Jawab</label>
                         <input type="text" name="penanggung_jawab" required
                             class="w-full rounded-xl border-gray-200 focus:ring-2 focus:ring-indigo-500">
@@ -46,8 +47,8 @@
                     <div>
                         <label class="block text-xs font-bold text-gray-400 uppercase mb-2 tracking-widest">Nomor
                             Telepon</label>
-                        <input type="number" name="no_telp"
-                            class="w-full rounded-xl border-gray-200 focus:ring-2 focus:ring-indigo-500">
+                        <input type="text" name="no_telp"
+                            class="rupiah w-full rounded-xl border-gray-200 focus:ring-2 focus:ring-indigo-500">
                     </div>
                     <div class="col-span-2">
                         <label

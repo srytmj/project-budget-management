@@ -4,7 +4,8 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration {
+return new class extends Migration
+{
     /**
      * Run the migrations.
      */
@@ -120,7 +121,7 @@ return new class extends Migration {
                 'nominal' => 1000000,
                 'keterangan' => 'Kas masuk Proyek A',
                 'upload_bukti' => 'km-001-2026.jpg',
-                'created_at' => now()
+                'created_at' => now(),
             ],
             [
                 'no_form' => 'KM-20260101-002',
@@ -134,8 +135,8 @@ return new class extends Migration {
                 'nominal' => 1000000,
                 'keterangan' => 'Kas masuk Proyek A',
                 'upload_bukti' => 'km-001-2026.jpg',
-                'created_at' => now()
-            ],  
+                'created_at' => now(),
+            ],
             // Transaksi Keluar
             [
                 'no_form' => 'KK-20260101-001',
@@ -149,7 +150,7 @@ return new class extends Migration {
                 'nominal' => 1000000,
                 'keterangan' => 'Kas keluar Proyek A',
                 'upload_bukti' => 'kk-001-2026.jpg',
-                'created_at' => now()
+                'created_at' => now(),
             ],
             [
                 'no_form' => 'KK-20260101-002',
@@ -163,9 +164,19 @@ return new class extends Migration {
                 'nominal' => 1000000,
                 'keterangan' => 'Kas keluar Proyek B',
                 'upload_bukti' => 'kk-001-2026.jpg',
-                'created_at' => now()
+                'created_at' => now(),
             ],
         ]);
+
+        Schema::create('rincian', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('id_kas');
+            $table->string('nama');
+            $table->decimal('nominal', 15, 2);
+            $table->timestamps();
+
+            $table->foreign('id_kas')->references('id_kas')->on('kas')->onDelete('cascade');
+        });
     }
 
     /**
@@ -176,6 +187,6 @@ return new class extends Migration {
         // Schema::dropIfExists('pembayaran_detail');
         Schema::dropIfExists('kas');
         Schema::dropIfExists('termin_proyek');
-
+        Schema::dropIfExists('rincian');
     }
 };

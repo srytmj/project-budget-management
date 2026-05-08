@@ -69,8 +69,8 @@
 
                     <div>
                         <label class="block text-xs font-bold text-gray-400 uppercase mb-2">Nominal (Rp)</label>
-                        <input type="number" name="nominal" id="nominal" required
-                            class="w-full rounded-xl border-gray-200 font-bold text-emerald-600 dark:bg-gray-900 dark:border-gray-700"
+                        <input type="text" name="nominal" id="nominal" required
+                            class="rupiah w-full rounded-xl border-gray-200 font-bold text-emerald-600 dark:bg-gray-900 dark:border-gray-700"
                             placeholder="0">
                         <small id="nominal_info" class="text-[10px] text-gray-500 mt-1"></small>
                     </div>

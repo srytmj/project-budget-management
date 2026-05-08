@@ -68,9 +68,9 @@
                         <div>
                             <label class="block text-xs font-bold text-gray-400 uppercase mb-2">Nominal Termin
                                 (Rp)</label>
-                            <input type="number" name="nominal" id="nominal_input" value="{{ $termin->nominal }}"
+                            <input type="text" name="nominal" id="nominal_input" value="{{ $termin->nominal }}"
                                 required
-                                class="w-full rounded-xl border-gray-200 font-bold text-emerald-600 dark:bg-gray-900 dark:border-gray-700">
+                                class="rupiah w-full rounded-xl border-gray-200 font-bold text-emerald-600 dark:bg-gray-900 dark:border-gray-700">
                             <small class="text-[10px] text-gray-500 italic">Nilai Kontrak: Rp
                                 {{ number_format($termin->nilai_kontrak, 0, ',', '.') }}</small>
                         </div>
@@ -82,7 +82,7 @@
                                 @foreach ($tipe_termin as $tipe)
                                     <option value="{{ $tipe->id_tipe_termin }}"
                                         {{ $termin->id_tipe_termin == $tipe->id_tipe_termin ? 'selected' : '' }}>
-                                        {{ $tipe->nama_termin }}    
+                                        {{ $tipe->nama_termin }}
                                     </option>
                                 @endforeach
                             </select>
