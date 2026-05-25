@@ -1,59 +1,86 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Project Budget Management
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Sistem manajemen anggaran dan keuangan proyek berbasis web yang dibangun dengan framework Laravel 12. Aplikasi ini digunakan untuk mencatat, mengelola, dan melaporkan sirkulasi keuangan terkait proyek, mulai dari pengelolaan kas hingga pembentukan Laporan Realisasi Anggaran (LRA).
 
-## About Laravel
+## Fitur Utama
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Sistem ini memiliki beberapa modul utama untuk mendukung manajemen keuangan proyek:
+- Autentikasi dan manajemen hak akses pengguna menggunakan Laravel Breeze.
+- Manajemen Data Master: Chart of Accounts (COA), data vendor, dan data pemberi proyek.
+- Manajemen Proyek: Pencatatan kontrak proyek beserta termin pembayarannya.
+- Transaksi Keuangan: Pencatatan kas masuk dan kas keluar berdasarkan kategori kas yang ditentukan.
+- Akuntansi: Pencatatan jurnal umum secara manual atau otomatis melalui sistem.
+- Pelaporan Keuangan: Pembuatan Laporan Realisasi Anggaran (LRA) dan Laporan Laba Rugi.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Kebutuhan Sistem
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Sebelum menjalankan proyek ini, pastikan perangkat Anda sudah terinstal beberapa tools berikut:
+- PHP versi 8.2 atau yang lebih baru
+- Composer
+- Node.js dan NPM
+- Database server (MySQL, PostgreSQL, atau SQLite)
 
-## Learning Laravel
+## Langkah Instalasi
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+Proyek ini sudah dilengkapi dengan skrip otomatis untuk mempercepat proses instalasi awal.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+1. Clone repositori ke direktori lokal:
 
-## Laravel Sponsors
+```bash
+git clone https://github.com/srytmj/project-budget-management.git
+cd project-budget-management
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+```
 
-### Premium Partners
+2. Jalankan perintah setup otomatis melalui Composer:
+```bash
+composer setup
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+```
 
-## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Perintah di atas secara otomatis akan mengeksekusi rangkaian proses berikut:
+* Instalasi dependensi PHP (`composer install`).
+* Menyalin file `.env.example` menjadi `.env` jika belum tersedia di root folder.
+* Membuat application key baru (`php artisan key:generate`).
+* Menjalankan migrasi database ke sistem (`php artisan migrate --force`).
+* Instalasi dependensi frontend via NPM (`npm install`).
+* Melakukan kompilasi aset frontend untuk mode produksi (`npm run build`).
 
-## Code of Conduct
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-## Security Vulnerabilities
+*Catatan:* Jika Anda menggunakan database selain SQLite (seperti MySQL), harap sesuaikan terlebih dahulu konfigurasi kredensial database di file `.env` sebelum menjalankan skrip di atas, atau jalankan perintah `php artisan migrate` secara manual setelah file konfigurasi selesai diubah.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## Menjalankan Aplikasi di Lingkungan Pengembangan
 
-## License
+Untuk mempermudah proses development, Anda tidak perlu membuka banyak tab terminal terpisah. Cukup jalankan satu perintah berikut:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```bash
+composer dev
+
+```
+
+Skrip ini akan menjalankan beberapa proses penting sekaligus dalam satu jendela terminal:
+
+* Local development server Laravel (`php artisan serve`)
+* Queue listener untuk background jobs (`php artisan queue:listen`)
+* Log tailing secara real-time menggunakan Laravel Pail (`php artisan pail`)
+* Vite development server untuk hot-reloading frontend (`npm run dev`)
+
+Setelah berhasil berjalan, aplikasi dapat diakses melalui browser di alamat `http://localhost:8000`.
+
+## Pengujian (Testing)
+
+Untuk membersihkan cache konfigurasi lama dan menjalankan automated testing yang tersedia, Anda bisa menggunakan perintah:
+
+```bash
+composer test
+
+```
+
+## Tech Stack
+
+* Backend: Framework Laravel 12 (PHP 8.2)
+* Frontend: Tailwind CSS, Alpine.js, Vite
+* Starter Kit: Laravel Breeze
+* Dev Tools: Laravel Sail, Laravel Pint, Laravel Pail
